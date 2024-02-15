@@ -4,8 +4,11 @@ export const config = {
         './features/**/*.feature',
     ],
     capabilities: [{
-        maxInstances: 2,
+        maxInstances: 1,
         browserName: 'chrome',
+    },{
+        maxInstances: 1,
+        browserName: 'firefox',
     }],
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'error',
