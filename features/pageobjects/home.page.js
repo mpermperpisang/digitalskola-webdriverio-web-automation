@@ -1,24 +1,17 @@
 import { $, expect } from '@wdio/globals'
 import Page from './page.js';
 
+const sidenav = (menu) => $(`//*[text()="${menu}"]`);
+
 class HomePage extends Page {
   // NOTE: element collection
   get fieldSearch() { return $('.oxd-input--active'); }
-  get sidenavAdmin() { return $('//*[text()="Admin"]'); }
-  get sidenavPIM() { return $('//*[text()="PIM"]'); }
-  get sidenavLeave() { return $('//*[text()="Leave"]'); }
+  get userAdmin() { return $('//*[@class="oxd-userdropdown-name" and text()="M R  Ganesh"]') }
   get profilePicture() { return $('.oxd-userdropdown-tab') }
   get menuLogout() { return $('//*[text()="Logout"]'); }
 
-  async validateHomePage() {
-    await expect(this.fieldSearch).toBeDisplayed();
-    await expect(this.sidenavAdmin).toBeDisplayed();
-    await expect(this.sidenavPIM).toBeDisplayed();
-    await expect(this.sidenavLeave).toBeDisplayed();
-  }
-
-  async clickAdminMenu() {
-    await (this.menuAdmin).click();
+  async clickMenu(menu) {
+    await (sidenav(menu)).click();
   }
 
   async clickLogoutMenu() {

@@ -3,12 +3,12 @@ export const config = {
     specs: [
         './features/**/*.feature',
     ],
-    maxInstances: 10,
     capabilities: [{
-        browserName: 'chrome'
+        maxInstances: 1,
+        browserName: 'chrome',
     }],
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
     bail: 0,
     baseUrl: 'https://opensource-demo.orangehrmlive.com/',
     waitforTimeout: 10000,
@@ -20,6 +20,7 @@ export const config = {
     cucumberOpts: {
         require: ['./features/step-definitions/steps.js'],
         backtrace: false,
+        parallel: false,
         requireModule: [],
         dryRun: false,
         failFast: false,

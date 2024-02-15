@@ -5,7 +5,7 @@ class AdminPage extends Page {
   // NOTE: element collection
   get headerAdmin() { return $('//h6[text()="Admin" or text()="User Management"]'); }
 
-  async validateAdminPage() {
+  async validatePage() {
     await expect(this.headerAdmin).toBeDisplayed();
   }
 

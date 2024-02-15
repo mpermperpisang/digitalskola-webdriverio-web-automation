@@ -1,4 +1,4 @@
-import { $ } from '@wdio/globals'
+import { $, expect } from '@wdio/globals'
 import Page from './page.js';
 
 class LoginPage extends Page {
@@ -12,6 +12,10 @@ class LoginPage extends Page {
     await this.inputUsername.setValue(user);
     await this.inputPassword.setValue(process.env.PASSWORD);
     await this.btnLogin.click();
+  }
+
+  async validatePage() {
+    await expect(browser).toHaveUrlContaining('/web/index.php/auth/login');
   }
 
   open () {
