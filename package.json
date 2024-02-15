@@ -10,8 +10,5 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js --cucumberOpts.tagExpression"
-  },
-  "dependencies": {
-    "geckodriver": "^4.3.2"
   }
 }
